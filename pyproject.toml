@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "zapper-direct"
+version = "1.0.0"
+description = "Resumable, parallel Azure Blob Storage uploader for very large files (up to 100 TB)."
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "MIT" }
+dependencies = [
+    "azure-storage-blob>=12.19.0",
+    "python-dotenv>=1.0.0",
+]
+
+[project.scripts]
+zapper-direct = "zapper_direct.uploader:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["zapper_direct*"]
